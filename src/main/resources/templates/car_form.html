@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/car/add}" th:object="${car}" method="POST" enctype="application/x-www-form-urlencoded">
+    <input type="text" th:field="*{model}" />
+    <input type="text" th:field="*{brand}" />
+    <input type="number" th:field="*{cubicCapacity}" />
+    <input type="number" th:field="*{price}" value="200000.0" />
+    <input type="number" th:field="*{fabricationYear}" />
+    <input type="submit" value="Submit car" />
+</form>
+</body>
+</html>
