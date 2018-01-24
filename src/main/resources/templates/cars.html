@@ -2,14 +2,36 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/mdb.min.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
 <body>
+<div class="container">
+    <div class="form-group">
+        <input type="text" class="form-control" name="search" placeholder="Search"/>
+    </div>
 
-Car description
-<p th:text="${car.brand}"></p>
-<p th:text="${car.model}"></p>
-<p th:text="${car.cubicCapacity}"></p>
-<p th:text="${car.price}"></p>
+    <div class="row">
+        <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12 mt-4" th:each="car, row : ${cars}">
+            <div class="card">
+                <div class="card-item">
+                    <div class="card-header">
+                        <h5 class="d-inline" th:text="${car.brand + ', ' + car.model}"></h5>
+                        <a th:href="@{'/car/edit/' + ${car.id}}" class="btn btn-sm btn-primary d-inline">
+                            <i class="fa fa-pencil"> </i>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <p th:text="${'Cubic capacity : ' + car.cubicCapacity}"></p>
+                        <p th:text="${'Price : ' + car.price}"></p>
+                        <p th:text="${'Year : ' + car.fabricationYear}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

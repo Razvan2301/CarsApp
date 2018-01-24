@@ -1,0 +1,38 @@
+
+
+<div th:fragment="car-input(car)" xmlns:th="http://www.w3.org/1999/xhtml">
+<div class="form-group row">
+    <label for="model" class="col-sm-2 col-form-label">Model</label>
+    <div class="col-sm-10">
+        <input class="form-control" id="model" type="text" th:field="*{model}" />
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="brand" class="col-sm-2 col-form-label">Brand</label>
+    <div class="col-sm-10">
+        <input class="form-control" id="brand" type="text" th:field="*{brand}" />
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="cubicCapacity" class="col-sm-2 col-form-label">Cubic Capacity</label>
+    <div class="col-sm-10">
+        <input class="form-control" id="cubicCapacity" type="number" th:field="*{cubicCapacity}" />
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="price" class="col-sm-2 col-form-label">Price</label>
+    <div class="col-sm-10">
+        <input class="form-control" id="price" type="number" th:field="*{price}" />
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="fabricationYear" class="col-sm-2 col-form-label">Fabrication Year</label>
+    <div class="col-sm-10">
+        <input class="form-control" id="fabricationYear" type="number" th:field="*{fabricationYear}" />
+    </div>
+</div>
+</div>
