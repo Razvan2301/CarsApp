@@ -4,6 +4,7 @@ import com.cardealers.cardealers.model.Car;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.cardealers.cardealers.repository.CarRepository;
+import org.springframework.ui.Model;
 
 import java.util.List;
 
@@ -27,5 +28,9 @@ public class CarService {
 
     public List<Car> findByBrandName(String brandName) {
        return carRepository.findByBrand(brandName);
+    }
+
+    public List<Car> findByBrandNameAndModel(String brand, String model) {
+        return carRepository.findByBrandAndModel(brand, model);
     }
 }

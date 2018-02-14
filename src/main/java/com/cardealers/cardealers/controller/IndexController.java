@@ -20,7 +20,7 @@ public class IndexController {
 	@GetMapping
 	public String index(Model model) {
 		model.addAttribute("cars", carService.getAll());
-		return "cars";
+		return "main_search";
 	}
 
 	@GetMapping("/cars")
@@ -74,6 +74,12 @@ public class IndexController {
 	@GetMapping("/search")
 	public String searchResultByName(@RequestParam String brandName, Model model) {
 		model.addAttribute("cars", carService.findByBrandName(brandName));
+		return "cars";
+	}
+
+	@GetMapping("/advanced/search")
+	public String advancedSearch(@RequestParam String brand, @RequestParam("model") String carModel, Model model) {
+		model.addAttribute("cars", carService.findByBrandNameAndModel(brand, carModel));
 		return "cars";
 	}
 

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/mdb.min.css}"/>
+</head>
+<body>
+<form th:action="@{/advanced/search}" class="container" method="get">
+    <label for="brand">
+        Brand
+    </label>
+    <input type="text" id="brand" name="brand"/>
+    <label for="model">
+        Model
+    </label>
+    <input type="tel" id="model" name="model"/>
+    <input type="submit" value="search" />
+</form>
+</body>
+</html>
