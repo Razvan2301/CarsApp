@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/mdb.min.css}"/>
+</head>
+<body>
+<form th:action="@{/register}" th:object="${user}" class="container" method="POST">
+    <label for="email">
+        Name
+    </label>
+    <input type="text" id="email" th:field="*{email}"/>
+    <label for="password">
+        Name
+    </label>
+    <input type="password" id="password" th:field="*{password}"/>
+    <input type="submit" value="register" />
+</form>
+</body>
+</html>

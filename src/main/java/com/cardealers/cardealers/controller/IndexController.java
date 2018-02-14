@@ -1,7 +1,9 @@
 package com.cardealers.cardealers.controller;
 
 import com.cardealers.cardealers.model.Car;
+import com.cardealers.cardealers.model.User;
 import com.cardealers.cardealers.service.CarService;
+import com.cardealers.cardealers.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import java.security.Principal;
 @AllArgsConstructor
 public class IndexController {
 	private final CarService carService;
+	private final UserService userService;
 	@GetMapping
 	public String index(Model model) {
 		model.addAttribute("cars", carService.getAll());
@@ -74,4 +77,15 @@ public class IndexController {
 		return "cars";
 	}
 
+	@GetMapping("/register")
+	public String register(Model model) {
+		model.addAttribute("user", new User());
+		return "register";
+	}
+
+	@PostMapping("/register")
+	public String doRegister(@ModelAttribute User user) {
+		userService.save(user);
+		return "redirect:/login";
+	}
 }
