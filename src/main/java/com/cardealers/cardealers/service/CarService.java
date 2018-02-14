@@ -25,4 +25,7 @@ public class CarService {
         return carRepository.findOne(id);
     }
 
+    public List<Car> findByBrandName(String brandName) {
+       return carRepository.findByBrand(brandName);
+    }
 }

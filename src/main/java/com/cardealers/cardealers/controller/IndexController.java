@@ -15,8 +15,9 @@ import java.security.Principal;
 public class IndexController {
 	private final CarService carService;
 	@GetMapping
-	public String index() {
-		return "index";
+	public String index(Model model) {
+		model.addAttribute("cars", carService.getAll());
+		return "cars";
 	}
 
 	@GetMapping("/cars")
@@ -65,6 +66,12 @@ public class IndexController {
 	@GetMapping("/test")
 	public String getTest() {
 		return "test";
+	}
+
+	@GetMapping("/search")
+	public String searchResultByName(@RequestParam String brandName, Model model) {
+		model.addAttribute("cars", carService.findByBrandName(brandName));
+		return "cars";
 	}
 
 }
