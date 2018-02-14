@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @RequestMapping("/")
 @Controller
 @AllArgsConstructor
@@ -33,9 +35,10 @@ public class IndexController {
 
 
 	@GetMapping("/car/add")
-	public String getPostForm(Model model) {
+	public String getPostForm(Model model, Principal principal) {
 		Car car = new Car();
 		car.setId(0L);
+		model.addAttribute("user", principal.getName());
 		model.addAttribute("car", car);
 		System.out.print("Car ID " + car.getId());
 		return "car_form";
